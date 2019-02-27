@@ -3,7 +3,7 @@ package com.timbuchalka;
 public class Main {
 
     public static void main(String[] args) {
-	getDurationString(61);
+	getDurationString(8000);
     }
 
     public static void getDurationString(int min, int sec ){
@@ -13,11 +13,26 @@ public class Main {
 
         int hours, mins, secs;
 
-            hours = min/60;
-            mins = min%60;
-            secs = sec;
+        hours = min/60;
+        mins = min%60;
+        secs = sec;
 
-        System.out.println( hours +"h " + mins +"m " + secs + "s");
+        String hoursString = hours + "h ";
+        if(hours < 10){
+            hoursString = "0" + hoursString;
+        }
+
+        String minsString = mins + "m ";
+        if(mins < 10){
+            minsString = "0" + minsString;
+        }
+
+        String secsString = secs + "s ";
+        if(secs < 10){
+            secsString = "0" + secsString;
+        }
+
+        System.out.println( hoursString + minsString + secsString );
     }
 
     public static void getDurationString(int sec){
